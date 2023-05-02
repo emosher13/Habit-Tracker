@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AACE30E429E47257004EEA20 /* Habit Tracker.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE30E329E47257004EEA20 /* Habit Tracker.png */; };
+		AACE30E729E5D9BD004EEA20 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE30E629E5D9BD004EEA20 /* HabitModel.swift */; };
+		AACE30EB29F2F155004EEA20 /* HabitViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */; };
+		AACE30ED29F6E457004EEA20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE30EC29F6E457004EEA20 /* LoginViewController.swift */; };
+		AACE30F129F6EA79004EEA20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AACE30F029F6EA79004EEA20 /* GoogleService-Info.plist */; };
+		AACE30F429F6EB08004EEA20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AACE30F329F6EB08004EEA20 /* FirebaseAuth */; };
+		AACE30F629F6EB08004EEA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AACE30F529F6EB08004EEA20 /* FirebaseFirestore */; };
+		AAD99A2D29F70ED6007332AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD99A2C29F70ED6007332AD /* Constants.swift */; };
+		AAD99A2F29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */; };
 		AAE6380629D60412004CCD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380529D60412004CCD33 /* AppDelegate.swift */; };
 		AAE6380829D60412004CCD33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380729D60412004CCD33 /* SceneDelegate.swift */; };
-		AAE6380A29D60412004CCD33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380929D60412004CCD33 /* ViewController.swift */; };
+		AAE6380A29D60412004CCD33 /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380929D60412004CCD33 /* HabitViewController.swift */; };
 		AAE6380D29D60412004CCD33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE6380B29D60412004CCD33 /* Main.storyboard */; };
 		AAE6381029D60412004CCD33 /* Habit_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380E29D60412004CCD33 /* Habit_Tracker.xcdatamodeld */; };
 		AAE6381229D60414004CCD33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE6381129D60414004CCD33 /* Assets.xcassets */; };
@@ -17,10 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AACE30E329E47257004EEA20 /* Habit Tracker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Habit Tracker.png"; path = "Logo/Habit Tracker.png"; sourceTree = SOURCE_ROOT; };
+		AACE30E629E5D9BD004EEA20 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
+		AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewControllerViewModel.swift; sourceTree = "<group>"; };
+		AACE30EC29F6E457004EEA20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AACE30F029F6EA79004EEA20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AAD99A2C29F70ED6007332AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHistoryViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AAE6380229D60412004CCD33 /* Habit Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE6380529D60412004CCD33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE6380729D60412004CCD33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AAE6380929D60412004CCD33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAE6380929D60412004CCD33 /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		AAE6380C29D60412004CCD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAE6380F29D60412004CCD33 /* Habit_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habit_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		AAE6381129D60414004CCD33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,12 +49,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACE30F429F6EB08004EEA20 /* FirebaseAuth in Frameworks */,
+				AACE30F629F6EB08004EEA20 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA88318C29DB606C0042E358 /* ProgressHistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */,
+			);
+			path = ProgressHistoryScreen;
+			sourceTree = "<group>";
+		};
+		AA88318D29DB60730042E358 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AACE30EC29F6E457004EEA20 /* LoginViewController.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		AACE30E529E5D98F004EEA20 /* HabitScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AACE30E629E5D9BD004EEA20 /* HabitModel.swift */,
+				AAE6380929D60412004CCD33 /* HabitViewController.swift */,
+				AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */,
+			);
+			path = HabitScreen;
+			sourceTree = "<group>";
+		};
 		AAE637F929D60412004CCD33 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +104,17 @@
 			children = (
 				AAE6380529D60412004CCD33 /* AppDelegate.swift */,
 				AAE6380729D60412004CCD33 /* SceneDelegate.swift */,
-				AAE6380929D60412004CCD33 /* ViewController.swift */,
+				AA88318D29DB60730042E358 /* LoginScreen */,
+				AACE30E529E5D98F004EEA20 /* HabitScreen */,
+				AA88318C29DB606C0042E358 /* ProgressHistoryScreen */,
 				AAE6380B29D60412004CCD33 /* Main.storyboard */,
+				AAD99A2C29F70ED6007332AD /* Constants.swift */,
 				AAE6381129D60414004CCD33 /* Assets.xcassets */,
 				AAE6381329D60414004CCD33 /* LaunchScreen.storyboard */,
 				AAE6381629D60414004CCD33 /* Info.plist */,
+				AACE30F029F6EA79004EEA20 /* GoogleService-Info.plist */,
 				AAE6380E29D60412004CCD33 /* Habit_Tracker.xcdatamodeld */,
+				AACE30E329E47257004EEA20 /* Habit Tracker.png */,
 			);
 			path = "Habit Tracker";
 			sourceTree = "<group>";
@@ -86,6 +135,10 @@
 			dependencies = (
 			);
 			name = "Habit Tracker";
+			packageProductDependencies = (
+				AACE30F329F6EB08004EEA20 /* FirebaseAuth */,
+				AACE30F529F6EB08004EEA20 /* FirebaseFirestore */,
+			);
 			productName = "Habit Tracker";
 			productReference = AAE6380229D60412004CCD33 /* Habit Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +167,9 @@
 				Base,
 			);
 			mainGroup = AAE637F929D60412004CCD33;
+			packageReferences = (
+				AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AAE6380329D60412004CCD33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,6 +184,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACE30E429E47257004EEA20 /* Habit Tracker.png in Resources */,
+				AACE30F129F6EA79004EEA20 /* GoogleService-Info.plist in Resources */,
 				AAE6381529D60414004CCD33 /* LaunchScreen.storyboard in Resources */,
 				AAE6381229D60414004CCD33 /* Assets.xcassets in Resources */,
 				AAE6380D29D60412004CCD33 /* Main.storyboard in Resources */,
@@ -141,10 +199,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE6380A29D60412004CCD33 /* ViewController.swift in Sources */,
+				AACE30ED29F6E457004EEA20 /* LoginViewController.swift in Sources */,
+				AAD99A2F29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift in Sources */,
+				AACE30E729E5D9BD004EEA20 /* HabitModel.swift in Sources */,
+				AAE6380A29D60412004CCD33 /* HabitViewController.swift in Sources */,
 				AAE6381029D60412004CCD33 /* Habit_Tracker.xcdatamodeld in Sources */,
+				AACE30EB29F2F155004EEA20 /* HabitViewControllerViewModel.swift in Sources */,
 				AAE6380629D60412004CCD33 /* AppDelegate.swift in Sources */,
 				AAE6380829D60412004CCD33 /* SceneDelegate.swift in Sources */,
+				AAD99A2D29F70ED6007332AD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,8 +360,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,8 +388,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,6 +425,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AACE30F329F6EB08004EEA20 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AACE30F529F6EB08004EEA20 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AAE6380E29D60412004CCD33 /* Habit_Tracker.xcdatamodeld */ = {
