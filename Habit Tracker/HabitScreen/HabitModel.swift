@@ -9,7 +9,7 @@
 import Foundation
 
 struct HabitInfo {
-    let habitName: String
+    var habitName: String
     var isChecked: Bool
     
     init(habitName: String, isChecked: Bool = false) {

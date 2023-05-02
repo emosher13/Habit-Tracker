@@ -82,17 +82,23 @@ class HabitViewController: UIViewController {
     //MARK: - Update Progress.
     
     @objc func updateProgress() {
-        let total = viewModel.habits.count
-        let checked = habitTableView.visibleCells.reduce(0) { (count, cell) -> Int in
-            if cell.accessoryType == .checkmark {
-                return count + 1
-            } else {
-                return count
+        let habits = viewModel.habits
+        
+        for var habit in habits {
+            let docRef = db.collection(K.FStore.collectionName).document(habit.habitName)
+            docRef.updateData([
+                K.FStore.isChecked: habit.isChecked
+            ]) { error in
+                if let error = error {
+                    print("Error updating habit: \(error.localizedDescription)")
+                } else {
+                    print("Habit updated successfully")
+                }
             }
+            habit.isChecked = false
         }
-        let progress = Float(checked) / Float(total)
-        habitProgress.setProgress(progress, animated: true)
-        progressLabel.text = "\(Int(progress * 100))%"
+        viewModel.updateProgressHistory()
+        viewModel.delegate?.updateProgress()
     }
     
     //MARK: - Set Midnight Timer
