@@ -17,7 +17,7 @@ class HabitViewControllerViewModel {
     var habits: [HabitInfo] = []
     var progressHistory: [Int] = []
     weak var delegate: HabitViewControllerViewModelDelegate?
-
+    
     
     init() {
         self.habits = []
@@ -27,38 +27,59 @@ class HabitViewControllerViewModel {
     //MARK: - Add Habit
     
     func addHabit(_ habitName: String) {
-        let habit = HabitInfo(habitName: habitName)
+        
+        let habit = HabitInfo(habitName: habitName, docID: nil)
         habits.append(habit)
         
-        db.collection(K.FStore.collectionName).document(habit.habitName).setData([
-            K.FStore.habitName: habit.habitName,
-            K.FStore.isChecked: habit.isChecked
-        ])
+        var ref: DocumentReference? = nil
+        ref = db.collection(K.FStore.collectionName).addDocument(data: [
+            K.FStore.habitName: habitName,
+            K.FStore.isChecked: false,
+        ]) { (error) in
+            if let error = error {
+                print("Error adding habit: \(error.localizedDescription)")
+            } else {
+                var newHabit = HabitInfo(habitName: habitName, isChecked: false, docID: nil)
+                
+                if let documentId = ref?.documentID {
+                    newHabit.docID = documentId // Store the document ID on the habit
+                }
+                
+                self.habits.append(newHabit)
+            }
+        }
     }
     
     //MARK: - Remove Habit
     
     func removeHabit(at index: Int) {
         let habit = habits[index]
-         
-         db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
-             if let error = error {
-                 print("Error deleting habit: \(error.localizedDescription)")
-             } else {
-                 print("Habit deleted successfully")
-                 self.habits.remove(at: index)
-                 self.delegate?.reloadTableView()
-             }
-         }
+        
+        db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
+            if let error = error {
+                print("Error deleting habit: \(error.localizedDescription)")
+            } else {
+                print("Habit deleted successfully")
+                self.habits.remove(at: index)
+                self.delegate?.reloadTableView()
+            }
+        }
     }
-     
+    
     //MARK: - Toggle Habit
     
     func toggleHabit(at index: Int) {
         habits[index].isChecked.toggle()
+        
         let habit = habits[index]
         
-        db.collection(K.FStore.collectionName).document(habit.habitName).updateData([
+        guard let documentId = habit.docID else {
+            print("Error updating habit: missing document ID")
+            return
+        }
+        
+        let docRef = db.collection(K.FStore.collectionName).document(documentId)
+        docRef.updateData([
             K.FStore.isChecked: habit.isChecked
         ]) { error in
             if let error = error {
@@ -70,7 +91,7 @@ class HabitViewControllerViewModel {
         
         delegate?.reloadTableView()
     }
-
+    
     //MARK: - Progress History
     
     func updateProgressHistory() {
@@ -108,7 +129,7 @@ class HabitViewControllerViewModel {
                     for doc in snapshotDocuments {
                         let data = doc.data()
                         if let habitName = data[K.FStore.habitName] as? String, let isChecked = data[K.FStore.isChecked] as? Bool {
-                            let newHabit = HabitInfo(habitName: habitName, isChecked: isChecked)
+                            let newHabit = HabitInfo(habitName: habitName, isChecked: isChecked, docID: doc.documentID)
                             self.habits.append(newHabit)
                             self.delegate?.reloadTableView()
                         }

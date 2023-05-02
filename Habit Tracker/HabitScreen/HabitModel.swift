@@ -9,11 +9,13 @@
 import Foundation
 
 struct HabitInfo {
-    var habitName: String
+    let habitName: String
     var isChecked: Bool
+    var docID: String?
     
-    init(habitName: String, isChecked: Bool = false) {
+    init(habitName: String, isChecked: Bool = false, docID: String?) {
         self.habitName = habitName
         self.isChecked = isChecked
+        self.docID = docID
     }
 }
