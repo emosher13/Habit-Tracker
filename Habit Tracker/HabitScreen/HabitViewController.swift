@@ -106,9 +106,13 @@ class HabitViewController: UIViewController {
 //        viewModel.delegate?.updateProgress()
 //    }
 
-    
     @objc func updateProgress() {
         let total = viewModel.habits.count
+        if total == 0 {
+            habitProgress.setProgress(0, animated: true)
+            progressLabel.text = "0%"
+            return
+        }
         let checked = habitTableView.visibleCells.reduce(0) { (count, cell) -> Int in
             if cell.accessoryType == .checkmark {
                 return count + 1

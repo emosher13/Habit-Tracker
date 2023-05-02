@@ -53,18 +53,49 @@ class HabitViewControllerViewModel {
     //MARK: - Remove Habit
     
     func removeHabit(at index: Int) {
+        guard habits.indices.contains(index) else {
+            print("Error: Attempted to remove habit at invalid index \(index)")
+            return
+        }
+        
         let habit = habits[index]
         
-        db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
-            if let error = error {
-                print("Error deleting habit: \(error.localizedDescription)")
+        db.collection(K.FStore.collectionName).document(habit.habitName).getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
+                    if let error = error {
+                        print("Error deleting habit: \(error.localizedDescription)")
+                    } else {
+                        print("Habit deleted successfully")
+                        self.habits.remove(at: index)
+                        self.delegate?.reloadTableView()
+                    }
+                }
             } else {
-                print("Habit deleted successfully")
-                self.habits.remove(at: index)
-                self.delegate?.reloadTableView()
+                print("Error deleting habit: document does not exist")
             }
         }
     }
+    
+    
+    //    func removeHabit(at index: Int) {
+    //        guard habits.indices.contains(index) else {
+    //            print("Error: Attempted to remove habit at invalid index \(index)")
+    //            return
+    //        }
+    //
+    //        let habit = habits[index]
+    //
+    //        db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
+    //            if let error = error {
+    //                print("Error deleting habit: \(error.localizedDescription)")
+    //            } else {
+    //                print("Habit deleted successfully")
+    //                self.habits.remove(at: index)
+    //                self.delegate?.reloadTableView()
+    //            }
+    //        }
+    //    }
     
     //MARK: - Toggle Habit
     
