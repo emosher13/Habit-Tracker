@@ -63,9 +63,9 @@ class HabitViewControllerViewModel {
                         if let error = error {
                             print("Error deleting habit: \(error.localizedDescription)")
                         } else {
-                            print("Habit deleted successfully")
+                            print("Habit deleted successfully \(documentID)")
                             self.habits.remove(at: index)
-                            self.loadHabits() // Reload table view after removing the habit
+                            self.loadHabits()
                         }
                     }
                 } else {

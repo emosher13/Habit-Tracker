@@ -69,9 +69,9 @@ class HabitViewController: UIViewController {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             _ = viewModel.habits[indexPath.row]
+            viewModel.removeHabit(at: indexPath.row)
             viewModel.habits.remove(at: indexPath.row)
                tableView.deleteRows(at: [indexPath], with: .fade)
-            viewModel.removeHabit(at: indexPath.row)
            }
     }
 
