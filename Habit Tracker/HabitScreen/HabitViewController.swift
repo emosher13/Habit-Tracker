@@ -16,15 +16,11 @@ class HabitViewController: UIViewController {
     @IBOutlet weak var habitTableView: UITableView!
     @IBOutlet weak var habitProgress: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
-    @IBOutlet weak var resultsButton: UIButton!
-    
-    @IBAction func viewWeeklyProgress(_ sender: UIButton) {
-    }
-    
+    @IBOutlet weak var quoteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultsButton.titleLabel?.font = UIFont(name: "Futura", size: 15.0)
+        quoteButton.titleLabel?.font = UIFont(name: "Futura", size: 15.0)
         habitTableView.dataSource = self
         habitTableView.delegate = self
         scheduleTimer()
@@ -80,31 +76,6 @@ class HabitViewController: UIViewController {
     }
 
     //MARK: - Update Progress.
-    
-//    @objc func updateProgress() {
-//        let habits = viewModel.habits
-//
-//        // Save the state of each habit to Firestore
-//        for var habit in habits {
-//            let docRef = db.collection(K.FStore.collectionName).document(habit.habitName)
-//            docRef.updateData([
-//                K.FStore.isChecked: habit.isChecked
-//            ]) { error in
-//                if let error = error {
-//                    print("Error updating habit: \(error.localizedDescription)")
-//                } else {
-//                    print("Habit updated successfully")
-//                }
-//            }
-//
-//            // Reset isChecked property for each habit
-//            habit.isChecked = false
-//        }
-//
-//        // Update the progress history
-//        viewModel.updateProgressHistory()
-//        viewModel.delegate?.updateProgress()
-//    }
 
     @objc func updateProgress() {
         let total = viewModel.habits.count
@@ -136,8 +107,13 @@ class HabitViewController: UIViewController {
             timer = Timer(fireAt: midnight, interval: 0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
             RunLoop.main.add(timer!, forMode: .common)
         }
+    
+    //MARK: - Quote Button Segue
+    
+    @IBAction func viewQuote(_ sender: UIButton) {
+        performSegue(withIdentifier: K.Segues.quoteSegue, sender: self)
+    }
 }
-
 
 extension HabitViewController:  UITableViewDelegate, UITableViewDataSource, HabitViewControllerViewModelDelegate {
     //MARK: - TableView Data

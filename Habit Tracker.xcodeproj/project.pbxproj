@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAAE9F712A2626BB009DA87F /* QuoteViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */; };
+		AAAE9F732A262C99009DA87F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F722A262C99009DA87F /* QuoteModel.swift */; };
 		AACE30E429E47257004EEA20 /* Habit Tracker.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE30E329E47257004EEA20 /* Habit Tracker.png */; };
 		AACE30E729E5D9BD004EEA20 /* HabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE30E629E5D9BD004EEA20 /* HabitModel.swift */; };
 		AACE30EB29F2F155004EEA20 /* HabitViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */; };
@@ -15,7 +17,7 @@
 		AACE30F429F6EB08004EEA20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AACE30F329F6EB08004EEA20 /* FirebaseAuth */; };
 		AACE30F629F6EB08004EEA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AACE30F529F6EB08004EEA20 /* FirebaseFirestore */; };
 		AAD99A2D29F70ED6007332AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD99A2C29F70ED6007332AD /* Constants.swift */; };
-		AAD99A2F29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */; };
+		AAD99A312A155A92007332AD /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD99A302A155A92007332AD /* QuoteViewController.swift */; };
 		AAE6380629D60412004CCD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380529D60412004CCD33 /* AppDelegate.swift */; };
 		AAE6380829D60412004CCD33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380729D60412004CCD33 /* SceneDelegate.swift */; };
 		AAE6380A29D60412004CCD33 /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE6380929D60412004CCD33 /* HabitViewController.swift */; };
@@ -26,13 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewControllerViewModel.swift; sourceTree = "<group>"; };
+		AAAE9F722A262C99009DA87F /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		AACE30E329E47257004EEA20 /* Habit Tracker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Habit Tracker.png"; path = "Logo/Habit Tracker.png"; sourceTree = SOURCE_ROOT; };
 		AACE30E629E5D9BD004EEA20 /* HabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitModel.swift; sourceTree = "<group>"; };
 		AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AACE30EC29F6E457004EEA20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AACE30F029F6EA79004EEA20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAD99A2C29F70ED6007332AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHistoryViewControllerViewModel.swift; sourceTree = "<group>"; };
+		AAD99A302A155A92007332AD /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		AAE6380229D60412004CCD33 /* Habit Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE6380529D60412004CCD33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE6380729D60412004CCD33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,12 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA88318C29DB606C0042E358 /* ProgressHistoryScreen */ = {
+		AA88318C29DB606C0042E358 /* InspirationalQuoteScreen */ = {
 			isa = PBXGroup;
 			children = (
-				AAD99A2E29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift */,
+				AAAE9F722A262C99009DA87F /* QuoteModel.swift */,
+				AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */,
+				AAD99A302A155A92007332AD /* QuoteViewController.swift */,
 			);
-			path = ProgressHistoryScreen;
+			path = InspirationalQuoteScreen;
 			sourceTree = "<group>";
 		};
 		AA88318D29DB60730042E358 /* LoginScreen */ = {
@@ -77,8 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				AACE30E629E5D9BD004EEA20 /* HabitModel.swift */,
-				AAE6380929D60412004CCD33 /* HabitViewController.swift */,
 				AACE30EA29F2F155004EEA20 /* HabitViewControllerViewModel.swift */,
+				AAE6380929D60412004CCD33 /* HabitViewController.swift */,
 			);
 			path = HabitScreen;
 			sourceTree = "<group>";
@@ -106,7 +112,7 @@
 				AAE6380729D60412004CCD33 /* SceneDelegate.swift */,
 				AA88318D29DB60730042E358 /* LoginScreen */,
 				AACE30E529E5D98F004EEA20 /* HabitScreen */,
-				AA88318C29DB606C0042E358 /* ProgressHistoryScreen */,
+				AA88318C29DB606C0042E358 /* InspirationalQuoteScreen */,
 				AAE6380B29D60412004CCD33 /* Main.storyboard */,
 				AAD99A2C29F70ED6007332AD /* Constants.swift */,
 				AAE6381129D60414004CCD33 /* Assets.xcassets */,
@@ -199,10 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAE9F732A262C99009DA87F /* QuoteModel.swift in Sources */,
 				AACE30ED29F6E457004EEA20 /* LoginViewController.swift in Sources */,
-				AAD99A2F29F7126B007332AD /* ProgressHistoryViewControllerViewModel.swift in Sources */,
 				AACE30E729E5D9BD004EEA20 /* HabitModel.swift in Sources */,
+				AAAE9F712A2626BB009DA87F /* QuoteViewControllerViewModel.swift in Sources */,
 				AAE6380A29D60412004CCD33 /* HabitViewController.swift in Sources */,
+				AAD99A312A155A92007332AD /* QuoteViewController.swift in Sources */,
 				AAE6381029D60412004CCD33 /* Habit_Tracker.xcdatamodeld in Sources */,
 				AACE30EB29F2F155004EEA20 /* HabitViewControllerViewModel.swift in Sources */,
 				AAE6380629D60412004CCD33 /* AppDelegate.swift in Sources */,

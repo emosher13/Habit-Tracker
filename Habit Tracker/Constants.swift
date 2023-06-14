@@ -13,7 +13,7 @@ struct K {
     
     struct Segues {
         static let habitMainSegue = "goToHabitVC"
-        static let progressHistorySegue = "goToProgressVC"
+        static let quoteSegue = "goToInspirationalQuote"
         static let logOutSegue = "logOutSegue"
     }
     

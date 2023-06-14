@@ -21,7 +21,6 @@ class HabitViewControllerViewModel {
     
     init() {
         self.habits = []
-        updateProgressHistory()
     }
     
     //MARK: - Add Habit
@@ -46,6 +45,8 @@ class HabitViewControllerViewModel {
                 }
                 
                 self.habits.append(newHabit)
+
+                print("Habit added successfully")
             }
         }
     }
@@ -60,43 +61,27 @@ class HabitViewControllerViewModel {
         
         let habit = habits[index]
         
-        db.collection(K.FStore.collectionName).document(habit.habitName).getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
-                    if let error = error {
-                        print("Error deleting habit: \(error.localizedDescription)")
-                    } else {
-                        print("Habit deleted successfully")
-                        self.habits.remove(at: index)
-                        self.delegate?.reloadTableView()
+        if let documentID = habit.docID {
+            db.collection(K.FStore.collectionName).document(documentID).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    self.db.collection(K.FStore.collectionName).document(documentID).delete { error in
+                        if let error = error {
+                            print("Error deleting habit: \(error.localizedDescription)")
+                        } else {
+                            print("Habit deleted successfully")
+                            self.habits.remove(at: index)
+                            self.delegate?.reloadTableView()
+                        }
                     }
+                } else {
+                    print("Error deleting habit: document does not exist")
                 }
-            } else {
-                print("Error deleting habit: document does not exist")
             }
+        } else {
+            print("Error deleting habit: document ID is missing")
         }
     }
-    
-    
-    //    func removeHabit(at index: Int) {
-    //        guard habits.indices.contains(index) else {
-    //            print("Error: Attempted to remove habit at invalid index \(index)")
-    //            return
-    //        }
-    //
-    //        let habit = habits[index]
-    //
-    //        db.collection(K.FStore.collectionName).document(habit.habitName).delete { error in
-    //            if let error = error {
-    //                print("Error deleting habit: \(error.localizedDescription)")
-    //            } else {
-    //                print("Habit deleted successfully")
-    //                self.habits.remove(at: index)
-    //                self.delegate?.reloadTableView()
-    //            }
-    //        }
-    //    }
-    
+
     //MARK: - Toggle Habit
     
     func toggleHabit(at index: Int) {
@@ -123,30 +108,55 @@ class HabitViewControllerViewModel {
         delegate?.reloadTableView()
     }
     
-    //MARK: - Progress History
+    //MARK: - Midnight Reset
     
-    func updateProgressHistory() {
-        guard habits.count > 0 else { return }
+    func scheduleUncheckHabitsTask() {
+
+        var components = DateComponents()
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
         
-        let total = habits.count
-        let checked = habits.reduce(0) { (count, habit) -> Int in
-            if habit.isChecked {
-                return count + 1
-            } else {
-                return count
-            }
-        }
-        let progress = Int(Float(checked) / Float(total) * 100.0)
-        progressHistory.append(progress)
+        let calendar = Calendar.current
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())!
+        let tomorrowMidnight = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: tomorrow)!
+        let timeInterval = tomorrowMidnight.timeIntervalSince(Date())
+        let timer = Timer(fireAt: tomorrowMidnight, interval: 0, target: self, selector: #selector(uncheckHabits), userInfo: nil, repeats: false)
         
-        if progressHistory.count > 7 {
-            progressHistory.removeFirst()
-        }
+        RunLoop.main.add(timer, forMode: .common)
         
-        for i in 0..<habits.count {
-            habits[i].isChecked = false
+        DispatchQueue.global(qos: .background).async {
+            Thread.sleep(forTimeInterval: timeInterval)
+            RunLoop.main.add(timer, forMode: .common)
+            RunLoop.current.run()
         }
     }
+
+    @objc func uncheckHabits() {
+        updateHabitsCheckedStatus(false)
+        scheduleUncheckHabitsTask()
+    }
+    
+    func updateHabitsCheckedStatus(_ isChecked: Bool) {
+        for habit in habits {
+            guard let documentID = habit.docID else {
+                continue
+            }
+            
+            let docRef = db.collection(K.FStore.collectionName).document(documentID)
+            docRef.updateData([
+                K.FStore.isChecked: isChecked
+            ]) { error in
+                if let error = error {
+                    print("Error updating habit: \(error.localizedDescription)")
+                } else {
+                    print("Habit updated successfully")
+                }
+            }
+        }
+    }
+
+
     
     //MARK: - Reload Habits
     
