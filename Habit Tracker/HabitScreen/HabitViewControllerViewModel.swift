@@ -24,12 +24,8 @@ class HabitViewControllerViewModel {
     }
     
     //MARK: - Add Habit
-    
+
     func addHabit(_ habitName: String) {
-        
-        let habit = HabitInfo(habitName: habitName, docID: nil)
-        habits.append(habit)
-        
         var ref: DocumentReference? = nil
         ref = db.collection(K.FStore.collectionName).addDocument(data: [
             K.FStore.habitName: habitName,
@@ -41,26 +37,25 @@ class HabitViewControllerViewModel {
                 var newHabit = HabitInfo(habitName: habitName, isChecked: false, docID: nil)
                 
                 if let documentId = ref?.documentID {
-                    newHabit.docID = documentId // Store the document ID on the habit
+                    newHabit.docID = documentId
                 }
                 
-                self.habits.append(newHabit)
-
                 print("Habit added successfully")
+                self.loadHabits()
             }
         }
     }
-    
+
     //MARK: - Remove Habit
-    
+        
     func removeHabit(at index: Int) {
         guard habits.indices.contains(index) else {
             print("Error: Attempted to remove habit at invalid index \(index)")
             return
         }
-        
+
         let habit = habits[index]
-        
+
         if let documentID = habit.docID {
             db.collection(K.FStore.collectionName).document(documentID).getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -70,7 +65,7 @@ class HabitViewControllerViewModel {
                         } else {
                             print("Habit deleted successfully")
                             self.habits.remove(at: index)
-                            self.delegate?.reloadTableView()
+                            self.loadHabits() // Reload table view after removing the habit
                         }
                     }
                 } else {
@@ -83,7 +78,7 @@ class HabitViewControllerViewModel {
     }
 
     //MARK: - Toggle Habit
-    
+
     func toggleHabit(at index: Int) {
         habits[index].isChecked.toggle()
         
@@ -105,9 +100,9 @@ class HabitViewControllerViewModel {
             }
         }
         
-        delegate?.reloadTableView()
+        loadHabits()
     }
-    
+
     //MARK: - Midnight Reset
     
     func scheduleUncheckHabitsTask() {
