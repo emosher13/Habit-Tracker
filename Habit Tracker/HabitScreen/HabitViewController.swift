@@ -119,7 +119,7 @@ extension HabitViewController:  UITableViewDelegate, UITableViewDataSource, Habi
     //MARK: - TableView Data
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.habits.count
+        return viewModel.habits.isEmpty ? 1 : viewModel.habits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

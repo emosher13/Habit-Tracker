@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA02A3552A3A577D00B3A979 /* Habit_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */; };
 		AA02A3602A3B5E8900B3A979 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AA02A35F2A3B5E8900B3A979 /* FirebaseAuth */; };
 		AA02A3622A3B5E9200B3A979 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AA02A3612A3B5E9200B3A979 /* FirebaseFirestore */; };
 		AA02A3642A3B9E0400B3A979 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3632A3B9E0400B3A979 /* LoginModel.swift */; };
 		AA02A3662A3B9E1100B3A979 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3652A3B9E1100B3A979 /* LoginViewModel.swift */; };
+		AA02A3692A3BB78100B3A979 /* Habit_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */; };
 		AAAE9F712A2626BB009DA87F /* QuoteViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */; };
 		AAAE9F732A262C99009DA87F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F722A262C99009DA87F /* QuoteModel.swift */; };
 		AACE30E429E47257004EEA20 /* Habit Tracker.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE30E329E47257004EEA20 /* Habit Tracker.png */; };
@@ -92,31 +92,15 @@
 		AA02A3532A3A577D00B3A979 /* Habit TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA02A35B2A3A57F600B3A979 /* Login */,
-				AA02A35C2A3A57FD00B3A979 /* Habit */,
 				AA02A35D2A3A580500B3A979 /* Quote */,
 			);
 			path = "Habit TrackerTests";
 			sourceTree = "<group>";
 		};
-		AA02A35B2A3A57F600B3A979 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		AA02A35C2A3A57FD00B3A979 /* Habit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Habit;
-			sourceTree = "<group>";
-		};
 		AA02A35D2A3A580500B3A979 /* Quote */ = {
 			isa = PBXGroup;
 			children = (
+				AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */,
 			);
 			path = Quote;
 			sourceTree = "<group>";
@@ -311,7 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA02A3552A3A577D00B3A979 /* Habit_TrackerTests.swift in Sources */,
+				AA02A3692A3BB78100B3A979 /* Habit_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
