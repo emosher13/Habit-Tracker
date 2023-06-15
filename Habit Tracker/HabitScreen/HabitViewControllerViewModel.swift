@@ -13,7 +13,7 @@ protocol HabitViewControllerViewModelDelegate: AnyObject {
 
 class HabitViewControllerViewModel {
     
-    let db = Firestore.firestore()
+    var db = Firestore.firestore()
     var habits: [HabitInfo] = []
     var progressHistory: [Int] = []
     weak var delegate: HabitViewControllerViewModelDelegate?

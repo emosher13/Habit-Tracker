@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AA02A3552A3A577D00B3A979 /* Habit_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */; };
+		AA02A3602A3B5E8900B3A979 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AA02A35F2A3B5E8900B3A979 /* FirebaseAuth */; };
+		AA02A3622A3B5E9200B3A979 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AA02A3612A3B5E9200B3A979 /* FirebaseFirestore */; };
+		AA02A3642A3B9E0400B3A979 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3632A3B9E0400B3A979 /* LoginModel.swift */; };
+		AA02A3662A3B9E1100B3A979 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02A3652A3B9E1100B3A979 /* LoginViewModel.swift */; };
 		AAAE9F712A2626BB009DA87F /* QuoteViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */; };
 		AAAE9F732A262C99009DA87F /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE9F722A262C99009DA87F /* QuoteModel.swift */; };
 		AACE30E429E47257004EEA20 /* Habit Tracker.png in Resources */ = {isa = PBXBuildFile; fileRef = AACE30E329E47257004EEA20 /* Habit Tracker.png */; };
@@ -41,6 +45,8 @@
 /* Begin PBXFileReference section */
 		AA02A3522A3A577D00B3A979 /* Habit TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA02A3542A3A577D00B3A979 /* Habit_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_TrackerTests.swift; sourceTree = "<group>"; };
+		AA02A3632A3B9E0400B3A979 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		AA02A3652A3B9E1100B3A979 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AAAE9F702A2626BB009DA87F /* QuoteViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AAAE9F722A262C99009DA87F /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		AACE30E329E47257004EEA20 /* Habit Tracker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Habit Tracker.png"; path = "Logo/Habit Tracker.png"; sourceTree = SOURCE_ROOT; };
@@ -66,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA02A3602A3B5E8900B3A979 /* FirebaseAuth in Frameworks */,
+				AA02A3622A3B5E9200B3A979 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +121,13 @@
 			path = Quote;
 			sourceTree = "<group>";
 		};
+		AA02A35E2A3B5E8900B3A979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA88318C29DB606C0042E358 /* InspirationalQuoteScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +141,8 @@
 		AA88318D29DB60730042E358 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				AA02A3632A3B9E0400B3A979 /* LoginModel.swift */,
+				AA02A3652A3B9E1100B3A979 /* LoginViewModel.swift */,
 				AACE30EC29F6E457004EEA20 /* LoginViewController.swift */,
 			);
 			path = LoginScreen;
@@ -147,6 +164,7 @@
 				AAE6380429D60412004CCD33 /* Habit Tracker */,
 				AA02A3532A3A577D00B3A979 /* Habit TrackerTests */,
 				AAE6380329D60412004CCD33 /* Products */,
+				AA02A35E2A3B5E8900B3A979 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +214,10 @@
 				AA02A3572A3A577D00B3A979 /* PBXTargetDependency */,
 			);
 			name = "Habit TrackerTests";
+			packageProductDependencies = (
+				AA02A35F2A3B5E8900B3A979 /* FirebaseAuth */,
+				AA02A3612A3B5E9200B3A979 /* FirebaseFirestore */,
+			);
 			productName = "Habit TrackerTests";
 			productReference = AA02A3522A3A577D00B3A979 /* Habit TrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -298,12 +320,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAAE9F732A262C99009DA87F /* QuoteModel.swift in Sources */,
+				AA02A3642A3B9E0400B3A979 /* LoginModel.swift in Sources */,
 				AACE30ED29F6E457004EEA20 /* LoginViewController.swift in Sources */,
 				AACE30E729E5D9BD004EEA20 /* HabitModel.swift in Sources */,
 				AAAE9F712A2626BB009DA87F /* QuoteViewControllerViewModel.swift in Sources */,
 				AAE6380A29D60412004CCD33 /* HabitViewController.swift in Sources */,
 				AAD99A312A155A92007332AD /* QuoteViewController.swift in Sources */,
 				AAE6381029D60412004CCD33 /* Habit_Tracker.xcdatamodeld in Sources */,
+				AA02A3662A3B9E1100B3A979 /* LoginViewModel.swift in Sources */,
 				AACE30EB29F2F155004EEA20 /* HabitViewControllerViewModel.swift in Sources */,
 				AAE6380629D60412004CCD33 /* AppDelegate.swift in Sources */,
 				AAE6380829D60412004CCD33 /* SceneDelegate.swift in Sources */,
@@ -593,6 +617,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AA02A35F2A3B5E8900B3A979 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AA02A3612A3B5E9200B3A979 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		AACE30F329F6EB08004EEA20 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AACE30F229F6EB08004EEA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

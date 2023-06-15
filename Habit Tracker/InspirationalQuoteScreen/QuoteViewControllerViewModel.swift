@@ -9,10 +9,14 @@ import Foundation
 
 import Foundation
 
+//MARK: - Quote View Model Delegate
+
 protocol QuoteViewModelDelegate: AnyObject {
     func didFetchRandomQuote(quote: String, author: String)
     func didFailToFetchQuote(with error: Error)
 }
+
+//MARK: - Quote Struct
 
 struct QuoteViewModel {
     weak var delegate: QuoteViewModelDelegate?
@@ -54,60 +58,3 @@ struct QuoteViewModel {
         task.resume()
     }
 }
-
-
-
-//import Foundation
-//import UIKit
-//
-//protocol QuoteManagerDelegate {
-//    func didUpdateQuote(quote: QuoteModel)
-//}
-//
-//struct QuoteManager {
-//
-//    let quoteURL = "https://zenquotes.io/api/random"
-//    var delegate: QuoteManagerDelegate?
-//
-//    func fetchQuote() {
-//        let urlString = quoteURL
-//        performRequest(urlString: urlString)
-//    }
-//
-//    func performRequest(urlString: String) {
-//        if let url = URL(string: urlString) {
-//            let session = URLSession(configuration: .default)
-//            let task = session.dataTask(with: url) { (data, response, error) in
-//                if let error = error {
-//                    DispatchQueue.main.async {
-//                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-//                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    }
-//                    print(error)
-//                    return
-//                }
-//                if let safeData = data {
-//                    if let quote = self.parseJSON(quoteData: safeData) {
-//                        self.delegate?.didUpdateQuote(quote: quote)
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-//
-//    func parseJSON(quoteData: Data) -> QuoteModel? {
-//        let decoder = JSONDecoder()
-//        do {
-//            let decodedData = try decoder.decode(QuoteModel.self, from: quoteData)
-//            let q = decodedData.q
-//            let a = decodedData.a
-//
-//            let quote = QuoteModel(q: q, a: a)
-//            return quote
-//        } catch {
-//            print(error)
-//            return nil
-//        }
-//    }
-//}

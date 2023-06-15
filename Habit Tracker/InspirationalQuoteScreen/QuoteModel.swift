@@ -17,12 +17,3 @@ struct Quote: Codable {
     }
 }
 
-//struct QuoteModel: Codable{
-//    let q: String
-//    let a: String
-//
-//    init(q: String, a: String) {
-//        self.q = q
-//        self.a = a
-//    }
-//}
